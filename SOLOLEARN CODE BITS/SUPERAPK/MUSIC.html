@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Page Title</title>
+        <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abel&family=Ubuntu&display=swap"/>
+    </head>
+    <body>
+        <style>
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --font-stack: "Ubuntu", sans-serif;
+    --font: "Abel", sans-serif;
+    --font-weight: .85;
+    /*Colors*/
+    --dark: #2c3e50;
+    --light-blue: #BDD5EA;
+    --light-pink: #FFB6C1;
+    --white: #FFFAFA;
+    --pink: #ffc0cb;
+    /*Sizes*/
+    --width: 100vw;
+    --height: 100vh;
+    --radius: .5rem;
+    --padding: 1.5rem;
+    --pos: 50%;
+    --size: 100%;
+    /*Shadows*/
+    --shadow1: 1vmin 1.4vmin .5vmin 0 rgb(100 100 200 / 50%);
+    --shadow2: .5vmin .7vmin .5vmin rgb(100 100 100 / 50%);
+    --shadow3: 0 .1vmin .2vmin .25vmin rgba(0,0,0,.25) inset;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: var(--height);
+    display: grid;
+    place-items: center;
+    background: linear-gradient(
+        -5deg,
+        var(--pink) 25%,
+        var(--light-pink) 78%
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    color: var(--dark);
+    
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translate(0,0);
+    backdrop-filter: blur(var(--radius));
+}
+
+
+.container {
+    position: relative;
+    width: var(--size);
+}
+
+/* ===== absolute position ===== */
+.header,
+.controls,
+.volume,
+.info {
+    position: absolute;
+}
+
+.header {
+    inset: 0;
+    width: var(--size);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    transform: translate(0, -10rem);
+}
+
+.heading {
+    font-family: var(--font-stack);
+    font-weight: calc(600 * var(--font-weight));
+    font-size: calc(var(--padding) * 1.75);
+    color: var(--white);
+}
+
+.heading::first-letter {
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+
+.heading span {
+    display: inline-block;
+    font-weight: bolder;
+    transform: scale(1.0125);
+}
+
+.music__container {
+    width: 20rem;
+    max-width: var(--size);
+    height: 6rem;
+    background: var(--white);
+    margin: 4rem 0 0 1rem;
+    border-radius: var(--radius) 0 var(--radius) var(--radius);
+    box-shadow: var(--shadow1);
+    position: relative;
+    z-index: 5;
+}
+
+/* ===== image ===== */
+.avatar__container {
+    width: 7.75rem;
+    height: 7.75rem;
+    border-radius: var(--pos);
+    left: .5rem;
+    bottom: 3.5rem;
+    box-shadow: var(--shadow2);
+    position: relative;
+}
+
+.avatar__container::after {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: var(--pos);
+    left: var(--pos);
+    transform: translate(-50%,-50%);
+    border-radius: var(--pos);
+    background: var(--white);
+    box-shadow: var(--shadow3);
+}
+
+.avatar {
+    width: var(--size);
+    height: var(--size);
+    object-fit: cover;
+    border-radius: var(--pos);
+    margin-top: 0;
+    
+    animation: rotate 5s linear infinite;
+    
+    animation-play-state: paused;
+}
+
+.music__container.play .avatar__container .avatar {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== progress bar ===== */
+.box {
+    width: calc(var(--size) * .89);
+    height: 2.5rem;
+    background: var(--light-blue);
+    position: relative;
+    left: 1.0125rem;
+    bottom: -6.75rem;
+    border-radius: calc(var(--radius) * 2.5) var(--radius) 0 0;
+    transition: all .5s cubic-bezier(.89,.162,.76,-.672);
+    box-shadow: none;
+    z-index: -1;
+}
+
+.progress {
+    width: calc(var(--size) * .54);
+    height: .5rem;
+    background: rgba(0,0,0,.27);
+    top: var(--pos);
+    transform: translateY(-50%);
+    border-radius: calc(var(--radius) * .3);
+    left: 7.875rem;
+    box-shadow: var(--shadow3);
+    z-index: 1;
+}
+
+.progress__bar {
+    width: 0;
+    height: inherit;
+    background: var(--light-pink);
+    border-radius: calc(var(--radius) * .3);
+    box-shadow: var(--shadow3);
+}
+
+.box.active {
+    bottom: -4.5rem;
+    box-shadow: 1vmin 1.4vmin .5vmin 0 rgb(100 100 200 / 50%);
+    z-index: 1;
+}
+
+
+/* ===== controls ===== */
+.controls {
+    width: calc(var(--size) * .8);
+    display: block;
+    inset: 50% 0 0 7%;
+}
+
+.player__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-25%);
+}
+
+.btn {
+    padding: 0;
+    margin: 0;
+    display: block;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.player {
+    left: -.35rem;
+}
+
+.btn::before,
+.btn::after {
+    content: "";
+    position: absolute;
+    border: 0 solid transparent;
+    display: block;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    transition: all .5s ease;
+}
+
+.player::before {
+    border-left-color: var(--light-blue);
+    border-width: 1.25rem 1.5rem 1.25rem 1.8rem;
+}
+
+.player.active::before,
+.player.active::after {
+    border-width: 1.25rem .5rem 1.25rem .5rem;
+    border-color: var(--light-blue);
+}
+
+.player.active::before {
+     left: -1.25rem;
+}
+
+.player.active::after {
+    left: .15rem;
+}
+
+.backward::before,
+.backward::after {
+    border-right-color: var(--light-blue);
+    border-width: .5rem .8rem .5rem 1.25rem;
+}
+
+.forward::before,
+.forward::after {
+    border-left-color: var(--light-blue);
+    border-width: .5rem 1.25rem .5rem .8rem;
+}
+
+.backward::before {
+    left: -3.5rem;
+}
+
+.backward::after {
+    left: -4.25rem;
+}
+
+.forward::before {
+    left: 1.75rem;
+}
+
+.forward::after {
+    left: 2.5rem;
+}
+
+/* ===== volume ===== */
+.volume {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 3rem;
+    height: calc(var(--radius) * .75);
+    box-shadow: var(--shadow3);
+    border-radius: var(--radius);
+    right: calc(var(--padding) * -.975);
+    bottom: var(--radius);
+}
+
+.volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: calc(var(--padding) * .7);
+    height: calc(var(--padding) * .7);
+    background: var(--light-blue);
+    border-radius: var(--pos);
+    box-shadow: 0 0 0 calc(var(--radius) * .1) var(--white),
+                0 0 0 calc(var(--radius) * .3) var(--light-blue);
+    transition: all .125s ease;
+}
+
+.volume::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 calc(var(--radius) * .1) var(--white),
+                0 0 0 calc(var(--radius) * .4) var(--light-blue);
+}
+
+/* ===== info content ===== */
+.info {
+    left: 1rem;
+    bottom: 0;
+    width: var(--pos);
+    min-width: 20rem;
+    height: 6rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--light-blue);
+    padding: .75rem 1.5rem;
+    margin: 0;
+    box-shadow: none;
+    border-radius: var(--radius) 0 var(--radius) var(--radius);
+    z-index: -1;
+    opacity: 0;
+    transition: all .5s cubic-bezier(.89,.162,.76,-.672);
+}
+
+.info p {
+    display: block;
+    padding: 0;
+    margin: 0 .5rem;
+    text-transform: capitalize;
+    font-family: var(--font);
+}
+
+.info span {
+    display: inline-block;
+    font-weight: calc(900 * var(--font-weight));
+}
+
+.info.active {
+    bottom: -5rem;
+    box-shadow: var(--shadow1);
+    opacity: 1;
+    z-index: 1;
+}
+
+        </style>
+        <div class="container">
+            <header class="header">
+                <h1 class="heading">MUSIFY <br>
+                    <a href="HOME.html">
+                    <span class="icon"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+                    <span class="title">GO BACK TO HOME PAGE</span>
+                  </a></h1>
+            </header>
+            <div class="box">
+                <div class="progress box">
+                    <div class="progress__bar" id="progress"></div>
+                </div>
+            </div>
+            <div class="music__container">
+                <audio id="audio">
+                    <p>Your browser does not support audio element</p>
+                </audio>
+                <div class="avatar__container">
+                    <img class="avatar" id="cover" src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/3/f/6/8/970321601391794.jpg" alt="cover"/>
+                </div>
+                <div class="controls">
+                    <div class="player__buttons">
+                        <button class="backward btn" id="prev"></button>
+                        <button class="player btn" id="player"></button>
+                        <button class="forward btn" id="next"></button>
+                    </div>
+                    <input class="volume" id="slider" type="range" min="0" max="100" value="30" stpe="0.1"/>
+                </div><!--controls-->
+            </div><!--audio container-->
+            <div class="info"></div>
+        </div><!--container-->
+        <script>
+
+
+window.onload = function(){
+    const audio = document
+        .getElementById("audio");
+    const playBtn = document
+        .getElementById("player");
+    const nextBtn = document
+        .getElementById("next");
+    const prevBtn = document
+        .getElementById("prev");
+    const volume = document
+        .getElementById("slider");
+    const box = document
+        .querySelector(".box");
+    const musicContainer = document
+       .querySelector(".music__container");
+    const info = document
+        .querySelector(".info");
+    const image = document
+        .getElementById("cover");
+    const progress = document
+        .getElementById("progress");
+    const body = document.body;
+    const progress_bar = document
+        .querySelector(".progress")
+    
+    let isPlay = false;
+    let index = 1;
+    let playlist = [
+        {
+            song: "https://mus6.djxd.tk/mp3/e24320e2-7956-41f8-8fc3-c8b4c130e4c4.mp3",
+            author: "justin bieber ft. david caesar & giveon",
+            title: "peaches",
+            cover: "https://i2.wp.com/mixespty.net/wp-content/uploads/2021/03/Justin-Bieber-Justice-Album-2021.jpg?fit=1280%2C1280&ss1=1"
+        },
+        {
+            song: "https://files.talkglitz.tv/wp-content/uploads/2019/09/OneRepublic_-_Somebody_To_Love_talkglitz.tv.mp3",
+            author: "oneRepublic",
+            title: "someboy to love",
+            cover: "https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/3/f/6/8/970321601391794.jpg"
+        },
+        {
+            song: "http://dl2.djring.com/sd1.djring.com/128/479065/Let+Me+Love+You+-+DJ+Snake+Ft+Justin+Bieber%20(DJJOhAL.Com).mp3",
+            author: "justin bieber",
+            title: "let me love you",
+            cover: "https://www.menudospeques.net/images/musica/let-me-love-.jpg"
+        },
+        {
+            song: "https://mus8.djxd.tk/mp3/19be2743-bcb4-4098-987d-a1ac5747b651.mp3",
+            author: "lewis capaldi",
+            title: "before you go",
+            cover: "https://stafaband-76.com/storage/images/november-2019/0488x5vebk6t3vsmiitdjy-before-you-go-300.jpg"
+        }
+    ];
+    
+    loadSong(playlist[index]);
+    
+    function loadSong(songs){
+    
+        try{
+            audio.src = songs.song;
+            image.src = songs.cover;
+            body.style.backgroundImage = `url(${songs.cover})`;
+        
+            info.innerHTML = `
+                <p class="author">
+                    <span>author:</span> ${songs.author}
+                </p>
+                <p class="titile">
+                    <span>title:</span> ${songs.title}
+                </p>
+            `;
+        }catch(error){
+            console.log(`Bad request: ${error.message}`);
+        }
+    }
+    
+    function playSong(){
+        playBtn.classList
+            .add("active");
+        box.classList
+            .add("active");
+        info.classList
+            .add("active");
+            
+        musicContainer
+            .classList.add("play");
+            
+        loadSong(playlist[index]);
+        audio.play();
+            
+    }
+    
+    function pauseSong(){
+        playBtn.classList
+            .remove("active");
+        box.classList
+            .remove("active");
+        info.classList
+            .remove("active");
+               
+        musicContainer.classList
+            .remove("play");
+            
+        audio.pause();
+    }
+    
+    function nextSong(){
+        index++;
+        if(index > playlist.length - 1){
+            index = 0;
+        }
+        
+        loadSong(playlist[index]);
+        playSong();
+    }
+    
+    function prevSong(){
+        index--
+        if(index < 0){
+            index = playlist.length - 1;
+        }
+        loadSong(playlist[index]);
+        playSong();
+    }
+    
+    function updateProgress(e){
+        const { duration, currentTime } = e.srcElement;
+        const percent = Math.floor((currentTime / duration ) * 100);
+        progress.style.width = `${ percent }%`;
+    }
+    
+    function setUpdateProgress(e){
+        const width = this.clientWidth;
+        const clientX = e.offsetX;
+        const duration = audio.duration;
+        const currentIndex = Math.round((clientX / width) * duration);
+        audio.currentTime = currentIndex;
+    }
+    
+    function volumeSlider(){
+        const range = volume.value / 100
+        audio.volume = range;
+    }
+    
+    playBtn.addEventListener("click", () => {
+        
+        if(!isPlay){
+            isPlay = true;
+            playSong();
+        }else{
+            isPlay = false;
+            pauseSong();
+        }
+    });
+    
+    // Event handlers
+    nextBtn
+        .addEventListener("click", nextSong);
+    prevBtn
+        .addEventListener("click", prevSong);
+    audio
+        .addEventListener("timeupdate", updateProgress);
+    audio
+        .addEventListener("ended", nextSong);
+    volume
+        .addEventListener("change", volumeSlider);
+    volume
+        .addEventListener("mousemove", volumeSlider);
+    progress_bar
+        .addEventListener("click", setUpdateProgress)
+}
+
+
+        </script>
+    </body>
+</html>

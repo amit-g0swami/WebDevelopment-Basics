@@ -1,0 +1,33 @@
+<---------------------------------------------THIS IS FOR KNOWLEDGE PURPOSE ONLY---------------------------------------------------------->
+
+Phishing (brand spoofing) is the attempt to acquire sensitive information such as usernames, passwords, and credit card details (and sometimes, indirectly, money), often for malicious reasons, by masquerading as a trustworthy entity in an electronic
+
+INTENTION BEHIND PHISHING:
+The purpose behind phishing is to divulge personal information and steal the user’s identity, passwords, robbing bank account & consequently take over the computer.
+
+PHISHING - A CYBER CRIME, THE PROVISIONS OF INFORMATION TECHNOLOGY ACT, 2000:
+The phishing fraud essentially is a cybercrime and it attracts many penal provisions of the Information Technology Act, 2000 as amended in 2008 adding some new provisions to deal with the phishing activity. The following Sections of the Information Technology Act, 2000 are applicable to the Phishing Activity:
+Section 66: The account of the victim is compromised by the phisher which is not possible unless & until the fraudster fraudulently effects some changes by way of deletion or alteration of information/data electronically in the account of the victim residing in the bank server. Thus, this act is squarely covered and punishable u/s 66 IT Act.
+Section 66A: The disguised email containing the fake link of the bank or organization is used to deceive or to mislead the recipient about the origin of such email and thus, it clearly attracts the provisions of Section 66A IT Act, 2000.
+Section 66C: In the phishing email, the fraudster disguises himself as the real banker and uses the unique identifying feature of the bank or organization say Logo, trademark etc. and thus, clearly attracts the provision of Section 66C IT Act, 2000.
+Section 66D: The fraudsters through the use of the phishing email containing the link to the fake website of the bank or organizations personates the Bank or financial institutions to cheat upon the innocent persons, thus the offence under Section 66D too is attracted.
+The Information Technology Act, 2000 makes penal provisions under the Chapter XI of the Act and further, Section 81 of the IT Act, 2000 contains a non obstante clause, i.e. “the provisions of this Act shall have effect notwithstanding anything inconsistent therewith contained in any other law for the time being in force”. The said non obstante clause gives an overriding effect to the provisions of the IT Act over the other Acts including the Indian Penal Code. The aforesaid penal provisions of the IT Act, 2000 which is attracted to the phishing scam are however been made bailable by virtue of Section 77B IT Act intentionally in view of the fact that there is always an identity conflict as to the correct or accurate identity of the person behind the alleged phishing scam and there is always a smokescreen behind the alleged crime as to the identity of the person who has actually via these online computer resources have or have not committed the offence and in view of the possible misuse of the penal provision for cyber offences as contained in the IT Act, the offence is made bailable.
+
+RECOGNIZING PHISHING:
+The following factors might be helpful in recognizing phishing:
+Financial loss occurs;
+Data loss occurs;
+Introduction of virus/ malware into the computer system occurs;
+Illegal use of the user’s details occurs.
+SAFEGUARDS AGAINST PHISHING:
+The following safeguards are to be implemented against phishing:
+Use of anti-spam software;
+One should not to click hyperlinks in e-mail through unknown/ unverified source;
+Use of firewalls should be there;
+Use of phishing filters;
+Use of digital certificates should be emphasized upon;
+E-mail protocols should be secured;
+Reliability of the websites should be ensured;
+Use a Web browser with anti-phishing detection;
+Be aware of phishing phone calls;
+Be aware of links in the mail box.

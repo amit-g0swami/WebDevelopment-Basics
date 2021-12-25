@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fashion Store</title>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+    
+    <body>
+    <style>*{
+        margin:0;
+        padding:0;
+        }
+        .right-menu li{
+            display: inline-block;
+            margin-top: 30px !important;
+        }
+        .right-menu li .fa{
+            font-size: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .navbar-brand img{
+            width: 160px;
+            height: 90px;
+        }
+        .navbar-brand{
+            left: 50%;
+            top: 25px;
+            transform: translateX(-50%);
+            position: absolute;
+        }
+        .header{
+            background: #f5f6fc;
+            margin-bottom: 80px;
+        }
+        .navbar{
+            padding: 0 35px !important;
+        }
+        .navbar-toggler{
+            border: none;
+            outline: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        
+        .navbar-toggler .fa{
+            font: 30px;
+            cursor: pointer;
+        }
+        .banner-img{
+            margin: 80px 115px;
+            width: 60%;
+        }
+        .banner-img img{
+            width: 100%;
+            margin-top: -80px;
+        }
+        .banner{
+            position: relative;
+        }
+        .banner-title{
+            position: absolute;
+            left: 50%;
+            top: 20%;
+        }
+        .banner-title h1{
+            font-size: 55px;
+            background: rgba(0,0,0,0.75);
+            color: #fff;
+            line-height: 70px;
+            padding: 0px 10px 0 10px;
+            text-transform: uppercase;
+        }
+        
+        /*Fashion Trends*/
+        .fashion-trends{
+            padding: 100px 0;
+        }
+        .fashion-box{
+            margin: 80px 0;
+        }
+        .title-style h1{
+            padding: 40px 0;
+        }
+        .title-style{
+            margin: 0 auto 80px;
+            height: 120px;
+            width: 80%;
+            max-width: 700px;
+            background: #fff;
+            position: relative;
+            box-shadow: 0 4px 5px 0 rgba(0,0,50,.5);
+        }
+        .title-style::after{
+            content: '';
+            height: 100px;
+            width: 200px;
+            background-color: #f992a6;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            z-index: -1;
+        }
+        .title-style::before{
+            content: '';
+            height: 100px;
+            width: 200px;
+            background-color: #f992a6;
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            z-index: -1;
+        }
+        .trending-img{
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .trending-img img{
+            width: 100%;
+        }
+        .btn-buy{
+            width: 150px;
+            padding: 10px 0;
+            outline: none !important;
+            border: none;
+            border-radius: 2px;
+            position: absolute;
+            background: #fff;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%,0);
+            transition: 0.6s;
+            opacity: 0;
+            z-index: 1;
+        }
+        .trending-img:hover .btn-buy{
+            transform: translate(-50%,50%);
+            bottom: 50%;
+            opacity: 1;
+        }
+        .overlay{
+            height: 0;
+            width: 100%;
+            background: #333;
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            transition: .5s;
+        }
+        .trending-img:hover .overlay{
+            opacity: 0.5;
+            height: 100%;
+        }
+        
+        /*Offer*/
+        .offer{
+            background-image: url(https://images.unsplash.com/photo-1514934240037-027a3f7be6f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+            background-size: cover;
+            background-position: center;
+        }
+        .row{
+            margin: initial !important;
+        }
+        .subscribe{
+            max-width: 500px;
+            margin-top: 80px;
+            padding: 60px;
+            background: #ffff8c;
+            margin-bottom: 20px; 
+        }
+        .subscribe a{
+            width: 100px;
+            display: block;
+            color: #fff !important;
+            background: #000;
+            text-decoration: none !important;
+            padding: 5px;
+            text-align: center;
+        }
+        .offer img{
+            width: 300px;
+            height: 400px;
+            margin: -100px;
+            margin-top: 150px;
+        }
+        .fashion-blog{
+            margin: 250px 0 150px 0;
+        }
+        .blog-img{
+            margin-top: 50px;
+            height: 400px;
+            width: 300px;
+            display: inline-block;
+        }
+        .blog-img img{
+            width: 100%;
+            height: 100%;
+        }
+        .fashion-blog h5{
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        /*fashion Brands*/
+        .fashion-brandss{
+            margin-bottom: 150px;
+        }
+        .brand-logo{
+            width: 200px;
+            height: 200px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 50px auto 30px;
+            box-shadow: 0 2px 40px 0 rgba(110,130,208,.18);
+        }
+        .brand-logo img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            margin:  auto;
+        }
+        .fashion-brands p{
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .footer{
+            margin-top: 150px;
+            background: #f5f6fc;
+        }
+        .payment,.app-download{
+            margin: 50px auto;
+        }
+        .payment img{
+            width: 300px;
+            cursor: pointer;
+        }
+        .insta-img{
+            margin-top: 10px;
+            width: 300px;
+            cursor: pointer;
+        }
+        .insta-img img{
+            width: 75px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .insta-img img:hover{
+            transition: 0.5s;
+            transform: scale(1.2);
+        }
+        .app-download img{
+            width: 200px;
+        }
+        .footer h5{
+            margin-bottom: 50px;
+        }
+        .footer h5::before{
+            content: '';
+            width: 70px;
+            height: 3px;
+            background: #4f74e8;
+            top: 80px;
+            position: absolute;
+        }
+        .footer-icons{
+            text-align: right;
+        }
+        .footer-icons .fa{
+            margin: 0 10px auto;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        /*For smaler device*/
+        @media only screen and (max-width: 800px){
+            .banner-img{
+                margin: 40px auto;
+                margin-top: 150px;
+                width: 80%;
+            }
+            .banner-title{
+                top: 150px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .banner-title h1{
+                font-size: 16px;
+                padding: 5px;
+                line-height: 20px;
+            }
+            .title-style h1{
+                font-size: 25px;
+            }
+            .offer img{
+                margin-top: 20px !important;
+                margin-bottom: 0 !important;
+            }
+          
+        .insta-img{
+            margin: auto;
+        }
+            .footer{
+                text-align: center;
+            }
+            .footer-icon{
+                text-align: center;
+              margin: auto;
+            }
+            .copyright{
+                text-align: center;
+            }
+        }
+        </style>
+        
+ <section class="header">
+       
+       <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#"><img src="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/09/fashion-logo-design.jpg"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Policy</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Condition</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Download</a>
+        </li>
+    </ul>
+    <ul class="right-menu ml-auto"> 
+        <li><i class="fa fa-facebbok"></i></li>
+        <li><i class="fa fa-instagram"></i></li>
+        <li><i class="fa fa-pinterest"></i></li>
+        <li>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search">
+      <div class="input-group-append">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+      </div>
+    </div>
+            
+        </li>
+    </ul>
+  </div>
+</nav>
+ <div class="banner">
+     <div class="banner-img">
+         <img src="https://images.pexels.com/photos/1130625/pexels-photo-1130625.jpeg" alt="">
+     </div>
+     <div class="banner-title">
+         <h1>Fashion Story</h1>
+         <h1>Women's Lifestyle </h1>
+     </div>
+     
+ </div>
+  
+   </section>
+   
+<!--   Fashion Trends-->
+   <section class="fashion-trends">
+       <div class="container">
+           <div class="fashion-box">
+              <div class="title-style text-center">
+                  <h1>Fashion Trends</h1>
+                </div>
+               <p class="text-center">Phasellus eget vulputate erat. Nulla auctor mi id nisi ultricies, rutrum porta lectus pretium. Aenean ut ultrices orci. Curabitur venenatis nisi est, at ultrices mi finibus ut. Maecenas nec turpis scelerisque, imperdiet sapien nec, cursus lorem. Aenean placerat varius est vel molestie. Nunc vel ante eu nulla facilisis feugiat eu nec ex.</p>
+           </div>
+           <div class="row">
+               <div class="col-md-4">
+                   <div class="trending-img">
+                   <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/7486225/2018/9/26/104aa520-5a96-42ed-9486-e4c4f78383d91537947355620-Shaily-Maroon-Banarasi-Silk-Embellished-Saree-9111537947355442-1.jpg">
+                   <button type="button" class="btn-buy">Buy Now</button>
+                   <div class="overlay"></div>
+                   </div>
+               </div>
+               <div class="col-md-4"><div class="trending-img">
+                   <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/11165858/2020/2/13/0fd0a302-292e-4e1e-9ad1-021d704d1c1a1581575477220-Levis-Men-Lavender-Graphic-Tee-6961581575475098-1.jpg">
+                   <button type="button" class="btn-buy">Buy Now</button>
+                   <div class="overlay"></div>
+                   </div></div>
+               <div class="col-md-4"><div class="trending-img">
+                   <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/6767278/2018/6/18/10329330-ee25-4ce0-acb0-7e310c86006b1529311470303-na-8461529311470122-1.jpg">
+                   <button type="button" class="btn-buy">Buy Now</button>
+                   <div class="overlay"></div>
+                   </div></div>
+           </div>
+       </div>
+   </section>
+   
+<!--   Offer-->
+<section class="offer">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/7745356/2019/3/5/42f66aa3-745c-4e50-bb7e-750f0ab5f0e61551785559693-Anouk-Women-Dresses-7011551785557779-3.jpg">
+        </div>
+        <div class="col-md-6">
+            <div class="subscribe">
+                <h4>Fashion Exclusive</h4>
+                <p>Integer blandit purus porta felis tempor blandit. Nullam eu porttitor diam. Morbi feugiat, felis vitae rhoncus consequat, nibh orci ornare orci, vel vulputate sapien purus ac eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+                <a href=""> Subscribe </a>
+            </div>
+        </div>
+    </div>
+</section>
+    
+<!--           Latest-->
+<section class="fashion-blog">
+    <div class="title-style text-center">
+      <h1>Latest Fashion Blog</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="blog-img">
+                    <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/11/6/d5bfbfc2-dae7-4649-a17e-68b0716c6e021573059786988-1.jpg">
+                </div>
+                <h5>New Style 50% Off</h5>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="blog-img">
+                    <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/11/5/61f09347-fb22-46b5-8b43-968dfedf9df31572944061173-1.jpg">
+                </div>
+                <h5>Buy 1 Get 1 Free</h5>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="blog-img">
+                    <img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2020/1/17/3f4a4b32-7a52-4e19-a11d-79188ef7d8f11579221806472-1.jpg">
+                </div>
+                <h5>New Jewellary Collection</h5>
+            </div>
+        </div>
+    </div>
+</section>
+           
+           
+<!--Fashion brands-->
+<section class="fashion-brands">
+    <div class="title-style text-center">
+      <h1>Our Fashion Brands</h1>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="brand-logo">
+                    <img src="https://images.all-free-download.com/images/graphiclarge/fashion_girl_logo_free_download_6820524.jpg">
+                </div>
+                <p>Exclusive Offer</p>
+            </div>
+            <div class="col-md-3">
+                <div class="brand-logo">
+                    <img src="https://i.pinimg.com/originals/67/32/d8/6732d807d547bfac88b6d3cea20b987c.png">
+                </div>
+                <p>Min 40% Off</p>
+            </div>
+            <div class="col-md-3">
+                <div class="brand-logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsl0pKQK4rGLl9yMgLM79ZvTB38c9dOmvK7A&usqp=CAU">
+                </div>
+                <p>Free Delivery</p>
+            </div>
+            <div class="col-md-3">
+                <div class="brand-logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSqIqH0xqsIOPTSMCi8o5NPvIjxUVhUT0TPUg&usqp=CAU">
+                </div>
+                <p>Upto 50% Off</p>
+            </div>
+        </div>
+    </div>
+</section>
+            
+            
+<!--        Footer-->
+<section class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+               <div class="payment">
+                <h5>Payment Gate Ways</h5>
+                <img src="https://www.chittaranjan.co.in/img/cards.jpg">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="insta-img">
+                   <h5>Instagram Pics</h5>
+                    <img src="https://images.unsplash.com/photo-1533659828870-95ee305cee3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                    <img src="https://images.unsplash.com/photo-1561643241-9abf82d76a68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                    <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                    <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                    <img src="https://images.unsplash.com/photo-1528826792843-696806ff0b87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                    <img src="https://images.unsplash.com/photo-1589451359791-f9c33af92239?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                    <img src="https://images.unsplash.com/photo-1456885284447-7dd4bb8720bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                    <img src="https://images.unsplash.com/photo-1496217590455-aa63a8350eea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                    <img src="https://images.unsplash.com/photo-1554141220-83411835a60b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="app-download">
+                    <h5>Download Mobile app</h5>
+                    <img src="https://www.freepngimg.com/thumb/android/67006-app-play-google-android-store-free-clipart-hd.png">
+                    <img src="https://lh3.googleusercontent.com/proxy/070BOijwc2XJNEahxC9GcD63utixe1Xg55vdBwlgQtnX0Tae7PRRYdX1lqxj_aGbaUgg2ISV_0EYtHtLLXf8yg4ZHwPfArEsZZi5sN-X0Bg4ZivvOZy_1k3upHnT1u-Opyxg934CqefEXr6kXtr1XhAeqjjBI16PRv8YzwwwZ_D4XqitaevQ9ApISHLSAzdcG7OBHes3O88diVbn">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-8">
+                <p class="copyright"> Designed with <i class="fa fa-heart"> </i> by AK</p>
+            </div>
+            <div class="col-md-4">
+                <div class="footer-icons">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </body>
+</html>

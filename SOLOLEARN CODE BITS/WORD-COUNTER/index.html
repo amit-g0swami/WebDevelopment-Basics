@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Counter</title>
+    </head>
+    <body>
+      <style>
+        *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing:border-box;
+    font-family:"Arial",san-serif;
+    outline:none;
+  }
+  body{
+    display:grid;
+    height:100vh;
+    place-items:center;
+    background-color:#9aa5b8;
+  }
+  
+  textarea{
+    min-width:50vw;
+    min-height:50vh;
+    padding:10px 0px 0 10px;
+    background-color:transparent;
+    border:3px solid black;
+    border-radius:10px;
+    font-size:1.4em;
+    transition:0.3s
+  }
+  
+  textarea:hover{
+    transition:0.3s;
+    border:3px solid #5e4cb0;
+  }
+      </style>
+        <h1>Word Counter</h1>
+<textarea name="textarea" id="area" placeholder="text here"></textarea>
+<span id="count">Number of words</span>
+
+
+<script>
+ let inp = document.querySelector("#area");
+let out = document.querySelector("#count");
+
+let counter = 0
+
+inp.addEventListener('change',()=>{
+  let trimmed = inp.value.trim();
+  if(trimmed==""){
+    out.innerText = "start typing"
+  }
+  else{
+    let regex = /([A-Z]|)\w+/g;
+    let counter = trimmed.match(regex).length
+    out.innerText = `Number of words : ${counter}`
+  }
+})
+ 
+</script>
+
+
+    </body>
+</html>

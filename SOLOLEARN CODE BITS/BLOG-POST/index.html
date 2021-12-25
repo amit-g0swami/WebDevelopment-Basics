@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans",sans-serif;
+  }
+  
+  body{
+    background-color: #444;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .blog-posts{
+    width: min(1200px, 100%);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    cursor: pointer;
+  }
+  
+  .post{
+    width: calc(33% - 10px);
+    overflow: hidden;
+  }
+  
+  .post-img{
+    width: 100%;
+    border-radius: 6px;
+    transition: .3s linear;
+  }
+  
+  .post-content{
+    background-color: #ffffffdd;
+    margin: 0 20px;
+    padding: 30px;
+    border-radius: 6px;
+    transform: translateY(-60px);
+    transition: .3s linear;
+  }
+  
+  .post-content h3{
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .date{
+    font-size: 15px;
+    font-style: italic;
+    color: #e77f67;
+  }
+  
+  .post:hover .post-img{
+    transform: translateY(20px);
+  }
+  
+  .post:hover .post-content{
+    transform: translateY(-80px);
+  }
+  
+  @media screen and (max-width: 1200px){
+    .blog-posts{
+      justify-content: center;
+    }
+    .post{
+      width: min(600px, 100%);
+    }
+  }
+  
+  </style>
+  <div class="blog-posts">
+    <div class="post">
+      <img src="https://nerdreactor.com/wp-content/uploads/2019/05/NuraNow_Nuraphone-.jpg" alt="" class="post-img">
+      <div class="post-content">
+        <h3>Stack Overflow,  a public platform for those who want to learn code, share knowledge, and build their career. It's a forum posting site where you can ask questions and give answers to tons of web development and computer programming topics.</h3>
+        <span class="date">July 13, 2020</span>
+      </div>
+    </div>
+    
+    <div class="post">
+      <img src="https://sneakerbardetroit.com/wp-content/uploads/2019/11/Air-Jordan-1-Mid-Black-Green-White-Red-554724-067-Release-Date.png" alt="" class="post-img">
+      <div class="post-content">
+        <h3>Stack Overflow,  a public platform for those who want to learn code, share knowledge, and build their career. It's a forum posting site where you can ask questions and give answers to tons of web development and computer programming topics.</h3>
+        <span class="date">July 13, 2020</span>
+      </div>
+    </div>
+
+    <div class="post">
+      <img src="https://image.goat.com/crop/750/attachments/product_template_pictures/images/022/368/451/original/516705_00.png.png" alt="" class="post-img">
+      <div class="post-content">
+        <h3>Stack Overflow,  a public platform for those who want to learn code, share knowledge, and build their career. It's a forum posting site where you can ask questions and give answers to tons of web development and computer programming topics.</h3>
+        <span class="date">July 13, 2020</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

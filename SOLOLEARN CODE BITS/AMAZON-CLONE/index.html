@@ -1,0 +1,920 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Style.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="jquery-2.0.3.js"></script>
+<script type="text/javascript" src="jquery.countdownTimer.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.countdownTimer.css" />
+    <title>Amazon clone</title>
+</head>
+
+<body>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  width:100%;
+  background-color:#B1B4D2;
+  
+}
+.clone{
+  width:100%;
+  overflow:hidden;
+  
+}
+.header{
+  width:100%;
+  height:40vw;
+  background-color:#232F3E;
+}
+.menu{
+  position:absolute;
+  top:4vw;
+  left:5vw;
+}
+.line_1{
+  width:8vw;
+  height:0.7vw;
+  background-color:white;
+  position:relative ;
+  top:vw;
+  
+  
+}
+.line_2{
+  width:8vw;
+  height:.7vw;
+  background-color:white;
+  position:relative;
+  top:2vw;
+}
+.line_3{
+  width:8vw;
+  height:.7vw;
+  background-color:white;
+  position:relative;
+  top:4vw;
+}
+.logo-1{
+  width:20vw;
+  position:absolute ;
+  top:5vw;
+  left:18vw;
+  color:white;
+  font-size:6vw;
+  
+}
+
+.in{
+  position:absolute;
+  color:white;
+  font-size:4vw;
+  top:4vw;
+  left:39vw;
+}
+.name{
+  display:inline-block;
+  position:absolute ;
+  color:white;
+  font-weight:9;
+  left:65vw;
+  top:4vw;
+  font-size:4vw;
+}
+#name{
+  position:absolute;
+  color:white;
+  left:75vw;
+  top:4vw;
+  font-size:4vw;
+}
+.fa-shopping-cart{
+  color:white ;
+  position:relative ;
+  left:90vw;
+  top:2vw;
+}
+.search{
+  width:90vw;
+  height:13vw;
+  background-color:white;
+  position:relative;
+  top:7vw;
+  left:5vw;
+  border-radius:2vw;
+}
+.search-logo{
+  
+}
+.fa-search{
+  color:black;
+  padding:2.6vw;
+  background-color:#FCBB6A;
+  border-radius:2vw;
+  top:-0.2vw;
+  position:relative;
+ left:80vw;
+
+}
+.search-p{
+  position:absolute;
+  font-size:4vw;
+  color:#A0A0A3;
+  padding-left:05vw;
+  top:4vw;
+  font-family: 'Open Sans', sans-serif;
+}
+.category{
+  position:absolute;
+  top:32vw;
+  left:5vw;
+  
+}
+span{
+  color:white;
+  margin:10px;
+  font-size:4vw;
+  font-family: 'Open Sans', sans-serif;
+}
+.location{
+  width:100%;
+  height:12vw;
+  background-color:#37475A;
+  position:relative;
+  top:0vw;
+  padding:5vw;
+}
+.location-text{
+  color:white;
+  font-size:3.6vw;
+  top:-2vw;
+  position:relative;
+  left:6vw;
+}
+.fa-map-marker{
+  color:white;
+  position:absolute;
+  font-size:5vw;
+  top:1vw;
+}
+.type{
+  width:100%;
+  height:24vw;
+  background-color:white;
+  position:relative;
+  top:0vh;
+  overflow-y:hidden;
+  overflow-x:scroll;
+}
+.grocery{
+  width:10vw;
+  height:20vw;
+  position:relative;
+  left:5vw;
+}
+ .g-img{
+  width:14vw;
+  position:relative;
+  top:2vw;
+}
+.g-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+.Fresh{
+  width:10vw;
+  height:20vw;
+  position:relative;
+  left:25vw;
+  top:-20vw;
+}
+ .f-img{
+  width:14vw;
+  position:relative;
+  top:2vw;
+}
+.f-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:2vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.Fashion{
+  width:10vw;
+  height:20vw;
+  position:relative;
+  left:45vw;
+  top:-40vw;
+}
+ .fa-img{
+  width:14vw;
+  position:relative;
+  top:2vw;
+}
+.fa-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:2vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.Electronics{
+  width:10vw;
+  height:20vw;
+  position:relative;
+  left:65vw;
+  top:-60vw;
+}
+ .e-img{
+  width:14vw;
+  position:relative;
+  top:2vw;
+}
+.e-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:2vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.Video{
+  width:10vw;
+  height:20vw;
+  position:absolute;
+  left:85vw;
+  top:0vw;
+}
+ .v-img{
+  width:14vw;
+  position:relative;
+  top:2vw;
+}
+.v-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:2vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.funzone{
+  width:10vw;
+  height:20vw;
+  position:absolute;
+  left:102vw;
+  top:0vw;
+}
+ .fu-img{
+  width:14vw;
+  position:relative;
+  top:2vw;
+}
+.fu-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:1vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+.images-view{
+  width:100%;
+  height:46vw;
+  background-color:white;
+  border-top:2vw solid  #C7C7C7;
+  border-bottom:2vw solid  #C7C7C7;
+  background-size:cover;
+  animation:images 40s infinite linear ;
+  overflow:hidden;
+}
+#img-1{
+  width:100%;
+  height:100%;
+  background-size:cover;
+}
+
+
+
+.type-2{
+  width:100%;
+  height:30vw;
+  background-color:white;
+  position:relative;
+  top:0vh;
+  overflow-y:hidden;
+  overflow-x:scroll;
+  border-bottom:2vw solid #C7C7C7;
+}
+.dth{
+  width:10vw;
+  height:20vw;
+  position:relative;
+  left:5vw;
+}
+ .dth-img{
+  width:20vw;
+  position:relative;
+  top:2vw;
+  left:-1vw;
+}
+.dth-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:5vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+.pay{
+  width:10vw;
+  height:20vw;
+  position:relative;
+  left:25vw;
+  top:-20vw;
+}
+ .pay-img{
+  width:20vw;
+  position:relative;
+  top:2vw;
+}
+.pay-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:5vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.bill{
+  width:14vw;
+  height:20vw;
+  position:relative;
+  left:45vw;
+  top:-40vw;
+}
+ .bill-img{
+  width:20vw;
+  position:relative;
+  top:2vw;
+}
+.bill-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:3vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.bill-2{
+  width:15vw;
+  height:20vw;
+  position:relative;
+  left:65vw;
+  top:-60vw;
+}
+ .bill-2-img{
+  width:20vw;
+  position:relative;
+  top:2vw;
+}
+.bill-2-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:2vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.Rewards{
+  width:10vw;
+  height:20vw;
+  position:absolute;
+  left:85vw;
+  top:0vw;
+}
+ .re-img{
+  width:20vw;
+  position:relative;
+  top:2vw;
+}
+.re-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:2vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.donate{
+  width:15vw;
+  height:20vw;
+  position:absolute;
+  left:107vw;
+  top:0vw;
+}
+ .do-img{
+  width:20vw;
+  position:relative;
+  top:2vw;
+}
+.do-p{
+  font-size:3vw;
+  position:relative;
+  top:2vw;
+  left:1vw;
+  color:#808089;
+  font-family: 'Open Sans', sans-serif;
+}
+.deals{
+    width:100%;
+    height:160vw;
+    Background:white;
+}
+.Deals-heading{
+  text-transform:uppercase;
+  font-size:7vw;
+  font-weight:100;
+  position:relative;
+  top:5vw;
+  left:4vw;
+}
+.hr1{
+  position:relative;
+  top:6vw
+}
+#deal-img{
+  width:35vw;
+  position:relative;
+  left:30vw;
+  top:10vw;
+}
+#deal-p{
+  position:relative;
+  top:10vw;
+  margin-left:5vw;
+  font-family: 'Open Sans', sans-serif;
+  font-size:4vw;
+}
+.deal-img2{
+  width:20vw;
+  position:relative;
+  top:15vw;
+  left:3vw;
+}
+.deal-img3{
+  width:20vw;
+  position:relative;
+  top:15vw;
+  left:3vw;
+}
+
+.deal-img4{
+  width:30vw;
+  position:relative;
+  left:5vw;
+  top:10vw;
+}
+.deal-img5{
+  width:15vw;
+  height:30vw;
+  position:relative;
+  left:7vw;
+  top:14vw;
+}
+.img-box{
+  width:800vw;
+  height:60vw;
+  overflow:hidden;
+}
+.see{
+  position:relative;
+  top:20vw;
+  color:#7CC2FF;
+  font-family: 'Open Sans', sans-serif;
+  font-size:4vw;
+  left:3vw;
+}
+#demo{
+  font-size:4vw;
+  position:relative;
+  left:20vw;
+  top:4.0vw;
+  font-family: 'Open Sans', sans-serif;
+}
+.img-box2{
+  width:100%;
+  height:40vw;
+  background:url("https://i.postimg.cc/TY73qLyk/615yct1-JUL-SR1242-450.jpg");
+  background-size:cover;
+  border-top:2vw solid #C7C7C7;
+  border-bottom:2vw solid #C7C7C7;
+}
+.idea-deals{
+  width:100%;
+  height:160vw;
+  background-color:white;
+  border-bottom:2vw solid  #C7C7C7;
+}
+.i-h{
+  font-size:7vw;
+  font-weight:300;
+  position:relative;
+  top:5vw;
+  left:3vw;
+}
+.product1{
+  width:43vw;
+  height:40vw;
+  position:relative;
+  left:3vw;
+  top:10vw;
+}
+.p-i-1{
+  width:40vw;
+}
+.p-p-1{
+  font-size:4vw;
+  font-weight:400;
+  font-family: 'Open Sans', sans-serif;
+}
+.product2{
+  width:43vw;
+  height:40vw;
+  position:relative;
+  left:54vw;
+  top:-30vw;
+  
+}
+.p-i-2{
+  width:40vw;
+}
+.p-p-2{
+  font-size:4vw;
+  font-weight:400;
+  font-family: 'Open Sans', sans-serif;
+}
+.product3{
+  width:43vw;
+  height:40vw;
+  position:relative;
+  left:3vw;
+  top:-10vw;
+}
+.p-i-3{
+  width:40vw;
+}
+.p-p-3{
+  font-size:4vw;
+  font-weight:400;
+  font-family: 'Open Sans', sans-serif;
+}
+.product4{
+  width:43vw;
+  height:40vw;
+  position:relative;
+  left:54vw;
+  top:-50vw;
+  
+}
+.p-i-4{
+  width:40vw;
+}
+.p-p-4{
+  font-size:4vw;
+  font-weight:400;
+  font-family: 'Open Sans', sans-serif;
+}
+.idea-deals-2{
+  width:100%;
+  height:160vw;
+  background-color:white;
+  position:relative;
+  top:0vw;
+  border-bottom:2vw solid #C7C7C7;
+}
+.p-2-1{
+  width:40vw;
+  border-radius:3vw;
+}
+.p-2-2{
+  width:40vw;
+  border-radius:3vw;
+}
+.p-2-3{
+  width:40vw;
+  border-radius:3vw;
+}
+.p-2-4 {
+  width: 40vw;
+  border-radius: 3vw;
+}
+.see-3{
+  font-size:4vw;
+  position:relative;
+  top:-30vw;
+  left:3vw;
+  color:#6ED7FD;
+  font-family: 'Open Sans', sans-serif;
+}
+.img-box3{
+  
+ width:100%;
+  height:60vw;
+  background-image:url("https://i.postimg.cc/cCsKM2hq/71d-Bv-Tw04-L.jpg");
+  background-size:100% 100%;
+  border-bottom:2vw solid #C7C7C7; 
+}
+.footer{
+  width:100%;
+  height:100vw;
+  background-color:#232F3E ;
+}
+.f-p p{
+  font-size:4vw;
+  line-height:10vw;
+}
+.f-p{
+  position:relative;
+  left:5vw;
+  font-size:4vw;
+}
+.f-p2 {
+  line-height:10vw;
+  color:#888992;
+  position:relative;
+  top:-80vw;
+  left:60vw;
+  font-style:3vw;
+  width:40vw;
+}
+A{
+    color:#888992;
+}
+  </style>
+
+  <div class="clone">
+<div class="header">
+  <div class="menu">
+    <div class="line_1"></div>
+    <div class="line_2"></div>
+    <div class="line_3"></div>
+  </div>
+  <img class="logo-1" src="https://i.postimg.cc/76xhNsL1/57-576184-view-our-amazon-storefront-amazon-logo-white-png.png " alt="Amazon" />
+  <p class="in">.in</p>
+  <p class="name">Hello <p id="name">Name</p></p>
+  <script>
+      var x =prompt("Write your name")
+      document.getElementById("name").innerHTML=x
+  </script>
+  <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:7vw"></i>
+  <div class="search"><p class="search-p">Find Amazon.in</p><div class="search-logo"><i class="fa fa-search" aria-hidden="true" style="font-size:7vw"></i></div></div>
+  <div class="category">
+    <span>category</span>
+  <span>Wish list</span>
+  <span>deal</span>
+  <span>sell</span></div>
+</div>
+<div class="location ">
+  <i class="fa fa-map-marker" aria-hidden="true" style="font-size:7vw"></i>
+  <p class="location-text">Select a location to check if a product is availa... </p>
+</div>
+<div class="type">
+  <div class="grocery"><img class="g-img" src="https://i.postimg.cc/ThvG00jq/11-M0j-Yc-t-RL-SS70.jpg" alt="" /><p class="g-p">Grocery</p></div>
+  
+    <div class="Fresh"><img class="f-img" src="https://i.postimg.cc/Qxgqjq42/11-CR97-Woie-L-SS70.jpg " alt="" /><p class="f-p">Fresh</p></div>
+    
+    
+    
+        <div class="Fashion"><img class="fa-img" src="https://i.postimg.cc/T1JQNjZv/11e-JNQucp-GL-SS70.jpg " alt="" /><p class="fa-p">Fresh</p></div>
+        
+      <div class="Electronics"><img class="e-img" src="https://i.postimg.cc/LsqSdh9b/11qyf-RJv-Eb-L-SS70.jpg " alt="" /><p class="e-p">Electronic</p></div>
+      
+      
+    <div class="Video"><img class="v-img" src="https://i.postimg.cc/LsqSdh9b/11qyf-RJv-Eb-L-SS70.jpg " alt="" /><p class="v-p">Video</p></div>
+    
+          
+    <div class="funzone"><img class="fu-img" src="https://i.postimg.cc/Y95YN40K/21-G3-E0-Dcl4-L-SS70.jpg " alt="" /><p class="fu-p">Funzone</p></div>
+</div>
+
+<div class="images-view"><img id="img-1" src="https://i.postimg.cc/HxBq1GcF/Boat-Xtend-Mob-Hero-1242x450-Final-CB665912327-SY300-FMwebp.webp " alt="" />
+
+<script type="text/javascript" charset="utf-8">
+  var img=['https://i.postimg.cc/Vk8DgG5t/HSS-1242x450-2-CB667756019-SY300-FMwebp.webp',  'https://i.postimg.cc/3RdBNzfs/Beauty-Herotators-Mobile-1242x450-CB656430787-SY300-FMwebp.webp', 
+ 'https://i.postimg.cc/Mp61Xhv9/D23951818-WLM-i-QOO-Z3-Launch-GW-Design-SIM-Mob-Hero-1242x450-CB667778066-SY300-FMwebp.webp',
+'https://i.postimg.cc/Mp61Xhv9/D23951818-WLM-i-QOO-Z3-Launch-GW-Design-SIM-Mob-Hero-1242x450-CB667778066-SY300-FMwebp.webp'] ;
+var i =0;
+function slide(){
+document.getElementById('img-1').src=img[i];
+if(i<img.length-1){
+    i++
+}else{
+  i=0;
+} 
+ }  
+ setInterval(slide,3000)
+</script>
+
+</div>
+<div class="type-2">
+  <div class="dth"><img class="dth-img" src="https://i.postimg.cc/m2N6vfvj/DTHpill-SY140-CB433908449.png " alt="" /><p class="dth-p">DTH</p></div>
+  
+    <div class="pay"><img class="pay-img" src="https://i.postimg.cc/RhxXYXG2/Halopaypng-SY210-CB413490744.png" alt="" /><p class="pay-p">Fresh</p></div>
+    
+    
+    
+        <div class="bill"><img class="bill-img" src="https://i.postimg.cc/httMNJb4/Recharges-pill-SY210-CB433908448.png " alt="" /><p class="bill-p">Recharge</p></div>
+        
+      <div class="bill-2"><img class="bill-2-img" src="https://i.postimg.cc/P5Jz2gTP/billpill-SY140-CB433847332.png " alt="" /><p class="bill-2-p">Pay Bills</p></div>
+      
+      
+    <div class="Rewards"><img class="re-img" src="https://i.postimg.cc/JzSJKtp2/Rewards-SY140-CB432223058.png" alt="" /><p class="re-p">Rewards</p></div>
+          
+    <div class="donate"><img class="do-img" src="https://i.postimg.cc/mZVHJmdM/Donationpill-SY140-CB433908449.png " alt="" /><p class="do-p">Covid-19</p></div>
+</div>
+ <div class="deals">
+   <h1 class="Deals-heading">Deals Of the day</h1>
+   <hr class="hr1"/>
+   <div class="img-box">
+   <img id="deal-img" src="https://i.postimg.cc/dtSH6LH4/41-HKE1-N5-Iq-L-AC-SY240.jpg" alt="" />
+   </div>
+   <p id="deal-p">Top Deals from Mivi & Urbn Mobiles Accessories
+<br />
+<b>99.00-10,999.00 <br />End in </b></p>
+<p id="demo"></p>
+<img class="deal-img2" src="https://i.postimg.cc/0jCp4H0p/31348z5-DSJL-AC-SY240.jpg " alt="" />
+   <img class="deal-img3"src="https://i.postimg.cc/dtSH6LH4/41-HKE1-N5-Iq-L-AC-SY240.jpg" alt="" />
+  <img class="deal-img4"src="https://i.postimg.cc/yYQfYk00/51-UHoxz-Inp-L-AC-SY240.jpg" alt="" /> 
+    <img class="deal-img5"src="https://i.postimg.cc/d043zPbQ/4110ru1t4-KL-AC-SY240.jpg" alt="" /> 
+    
+    <script type="text/javascript" charset="utf-8">
+  var img2=[' https://i.postimg.cc/0jCp4H0p/31348z5-DSJL-AC-SY240.jpg    ',  ' https://i.postimg.cc/dtSH6LH4/41-HKE1-N5-Iq-L-AC-SY240.jpg   ', 
+ 'https://i.postimg.cc/yYQfYk00/51-UHoxz-Inp-L-AC-SY240.jpg    ',
+' https://i.postimg.cc/d043zPbQ/4110ru1t4-KL-AC-SY240.jpg  '] 
+var j =0;
+function slide2(){
+document.getElementById('deal-img').src=img2[i];
+if(j<img2.length-1){
+    j++
+}else{
+  j=0;
+} 
+ }  
+ setInterval(slide2,3000)
+</script>
+<p class="see">See all deals</p>
+<script>
+
+
+
+// Set the date we're counting down to
+var countDownDate = new Date("June 20, 2021 12:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "Happy Holi";
+  }
+}, 1000);
+</script>
+ </div>
+ <div class="img-box2"></div>
+ <div class="idea-deals">
+   <h1 class="i-h">For your ideal work from home setup </h1>
+   <div class="product1">
+     <img class="p-i-1" src="https://i.postimg.cc/SQ3vJdtQ/Qc-Xcat-new-bg-01-SX600-CB660086980.jpg" alt="" />
+     <p class="p-p-1">Antivirus | Up to 50% of</p>
+   </div>
+   <div class="product2" >
+     <img class="p-i-2" src="https://i.postimg.cc/RCHTbBX9/Qc-Xcat-new-bg-02-SX600-CB660086980.jpg " alt="" />
+          <p class="p-p-2">Microsoft Office suites</p>
+   </div>
+   <div class="product3">
+     <img class="p-i-3" src="https://i.postimg.cc/cCRw1dbn/Qc-Xcat-new-bg-03-SX600-CB660086980.jpg " alt="" />
+          <p class="p-p-3">Premium smartphones</p>
+   </div>
+   <div class="product4">
+     <img class="p-i-4" src="https://i.postimg.cc/g2TXWw27/Qc-Xcat-new-bg-04-SX600-CB660086980.jpg" alt="" />
+          <p class="p-p-4">Premium noise cancellation...</p>
+   </div>
+      <p class="see-3">See More </p>
+   </div>
+   
+    <div class="idea-deals-2">
+   <h1 class="i-h">Smartphones from popular brands</h1>
+   <div class="product1">
+     <img class="p-2-1" src="https://i.postimg.cc/gJD44qG5/D23380868-WLD-MSO-BAU-Design-SIM-QC-420-X420-with-Apple-logo-SX600-CB669998412.jpg " alt="" />
+     <p class="p-p-1">Up to ₹5000 off on select bank cards </p>
+   </div>
+   <div class="product2" >
+     <img class="p-2-2" src="https://i.postimg.cc/Ghpg7N8j/D23380868-WLD-MSO-BAU-Design-SIM-QC-420-X420-with-Xiaomi-logo-SX600-CB669998412.jpg " alt="" />
+          <p class="p-p-2">Up to ₹2,000 off with coupons</p>
+   </div>
+   <div class="product3">
+     <img class="p-2-3" src="https://i.postimg.cc/tJvkGqZN/D23380868-WLD-MSO-BAU-Design-SIM-QC-420-X420-with-Oppo-logo-SX600-CB669998412.jpg " alt="" />
+          <p class="p-p-3">Up to 9 months No Cost EMI</p>
+   </div>
+   <div class="product4">
+     <img class="p-2-4" src="https://i.postimg.cc/W4VMKFYP/D23380868-WLD-MSO-BAU-Design-SIM-QC-420-X420-with-Realme-logo-SX600-CB669998412.jpg " alt="" />
+          <p class="p-p-4">Starting ₹7,999</p>
+          
+   </div>
+      <p class="see-3">See all </p>
+</div>
+<div class="img-box3">      </div>
+    <div class="idea-deals-2">
+   <h1 class="i-h">Get ready to beat the heat </h1>
+   <div class="product1">
+     <img class="p-2-1" src="https://i.postimg.cc/rF1fnkg3/AC-QC-2-1-SX600-CB656851591.jpg" alt="" />
+     <p class="p-p-1">AC</p>
+   </div>
+   <div class="product2" >
+     <img class="p-2-2" src="https://i.postimg.cc/XJZrqnpv/Refrigerator-QC-2-2-SX600-CB656851591.jpg " alt="" />
+          <p class="p-p-2">Refrigerators</p>
+   </div>
+   <div class="product3">
+     <img class="p-2-3" src="https://i.postimg.cc/L8N5VJPX/Coolers-QC-2-3-SX600-CB656851591.jpg " alt="" />
+          <p class="p-p-3">Air coolers </p>
+   </div>
+   <div class="product4">
+     <img class="p-2-4" src="https://i.postimg.cc/FRJKmGBd/Fans-QC-2-4-SX600-CB656851591.jpg " alt="" />
+          <p class="p-p-4">Fans</p>
+          
+   </div>
+      <p class="see-3">See More </p>
+
+      
+ </div>
+<div class="footer">
+  <div class="f-p">
+    <p>🌏Aim🌍Amazon.in</p>
+    <p>Amazon Pay</p>
+    <p>Wish List</p>
+    <p>Your Account</p>
+    <p>Returns</p>
+    <p>Customer Service </p>
+    <p><a href="https://youtube.com/c/CodingInfinite">YouTube</a></p>
+  </div>
+    <div class="f-p2">
+    <p>Your Orders </p>
+    <p>Amazon App Download </p>
+    <p>Find a Wish List </p>
+    <p>Your Recently View Items </p>
+    <p>Sell </p>
+    <p>Help</p>
+    <p></p>
+  </div>
+</div>
+    <footer></footer>
+</body>
+
+</html>

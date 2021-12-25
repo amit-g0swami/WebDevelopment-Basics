@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    body{
+        background-image: url(home.jpg);
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+h1{
+    font-size: 2rem;
+    font-weight: normal;
+    margin-top: 5rem;
+}
+.countdown-container{
+    display: flex;
+}
+
+.big-text{
+font-size: 6rem;
+line-height: 1;
+margin: 0 2rem;
+font-weight: bold;
+}
+.countdown-el{
+    text-align: center;
+}
+countdown-el span{
+    font-size: 1.5rem;
+}
+</style>
+
+    <h1>COUNTDOWN TIMER</h1>
+
+<div class="countdown-container">
+
+    <div class="countdown-el days-c">
+        <p class="big-text" id="days">0</p>
+        <span>days</span>
+    </div>
+    <div class="countdown-el hours-c">
+        <p class="big-text" id="hours">0</p>
+        <span>hours</span>
+    </div>
+    <div class="countdown-el minutes-c">
+        <p class="big-text" id="mins">0</p>
+        <span>minutes</span>
+    </div>
+    <div class="countdown-el seconds-c">
+        <p class="big-text" id="seconds">0</p>
+        <span>seconds</span>
+    </div>
+</div>
+
+<script>
+
+const daysel = document.getElementById('days');
+const hoursel = document.getElementById('hours');
+const minel = document.getElementById('mins');
+const secondsel = document.getElementById('seconds');
+const newYears = "1 Jan 2022";
+
+function countdown(){
+const newYearsDate = new Date(newYears);
+const currentDate = new Date();
+
+const totalseconds = (newYearsDate - currentDate)/1000;
+
+const d = Math.floor(totalseconds / 3600 / 24);
+const h = Math.floor(totalseconds / 3600 ) % 24;
+const m = Math.floor(totalseconds / 60 ) % 60;
+const s =  Math.floor(totalseconds ) % 60;
+
+console.log(d+" "+h+" "+m );
+daysel.innerHTML = d;
+hoursel.innerHTML = h;
+minel.innerHTML = m;
+secondsel.innerHTML = s;
+
+}
+countdown();
+setInterval(countdown,1000);
+
+</script>
+</body>
+</html>

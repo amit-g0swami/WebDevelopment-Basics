@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Js Animation</title> 
+  <style type="text/css" media="all">
+   *{
+      margin: 0;
+      padding: 0;
+   }
+      
+      .animation,section{
+         position: relative;
+         width: 100vw;
+         height: 100vh;
+         background: #333;
+      }
+    
+     .animation .banner{
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100vw;
+         height: 100vh;
+         overflow: hidden;
+         display: flex;
+         flex-wrap: wrap;
+      }
+      
+      .animation .banner .blocks{
+         position: relative;
+         display: block;
+         margin: 0;
+         width: 10vw;
+         height: 5vh;
+         animation: animate 0.75s ease-in-out forwards;
+      }
+      
+      .banner .blocks:nth-child(even){
+         animation: animate 1s ease-in-out forwards;
+      }
+      .banner .blocks:nth-child(7n+3){
+         animation: animate 2.5s ease-in-out forwards;
+      }
+      .banner .blocks:nth-child(7n+7){
+         animation: animate 1.5s ease-in-out forwards;
+      }
+      
+      
+      
+      @keyframes animate{
+         0%{
+            opacity: 0;
+            transform: scale(0) translate(100vw,100vh);
+         }
+         
+         50%{
+            opacity: 1;
+            background: url(https://source.unsplash.com/random?love+romantic+butterfly+nature);
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+         }
+         
+         100%{
+            opacity: 1;
+            transform: scale(1) translate(0,);
+            background: url(https://source.unsplash.com/random?love+romantic+butterfly+nature);
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+         }
+      }
+      
+   </style> 
+ </head> 
+ <body> 
+  <section class="animation"> 
+   <div class="banner"> 
+    <div class="blocks"> 
+    </div> 
+   </div> 
+   <p id="demo"></p> 
+  </section> 
+  <script type="text/javascript" charset="utf-8">
+         
+      let banner = document.getElementsByClassName('banner')[0];
+      let blocks = document.getElementsByClassName('blocks');
+      for (var i=1;i < 401;i++) {
+         
+        banner.innerHTML += "<div class='blocks'></div>";
+        blocks[i].style.animationDelay = i*0.05+'s';
+      }
+   </script> 
+ </body>
+</html>
