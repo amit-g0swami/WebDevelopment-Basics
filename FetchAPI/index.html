@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .showuser {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .user {
+        background-color: #ddd;
+        padding: 1rem;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      .button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="showuser">
+      <button onClick="window.location.reload(),UpdateData()" class="button">
+        UPDATE PROFILE
+      </button>
+    </div>
+  </body>
+  <script>
+    function fetchData() {
+      fetch("https://randomuser.me/api/")
+        .then((res) => {
+          if (!res.ok) {
+            throw ERROR("ERROR");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data.results);
+          const html = data.results
+            .map((user) => {
+              return `<div class="user">
+                <p><img src="${user.picture.large}" alt="" /></p>
+                <p>Name: ${user.name.title} ${user.name.first} ${user.name.last}</p>
+                <p>Age: ${user.dob.age}</p>
+                <p>Registered Date: ${user.registered.date}</p>
+                <p>DOB:${user.dob.date}</p>
+                <p>Location: ${user.location.country} ${user.location.city} ${user.location.postcode} ${user.location.state} ${user.location.street.name} ${user.location.street.number}</p>
+                <p>Cell: ${user.cell}</p>
+                <p>Phone: ${user.phone}</p>
+                <p>Login Details: <ul>
+                <li>USERNAME: ${user.login.username} </li>
+               <li>PASSWORD: ${user.login.password}</li>
+               <li>UID: ${user.login.uid}</li>
+                    </ul> </p>
+                </div>`;
+            })
+            .join("");
+          document
+            .querySelector(".showuser")
+            .insertAdjacentHTML("afterbegin", html);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    fetchData();
+
+    function UpdateData() {
+      alert(
+        "I read the randomuser.api docs and can't find any update api data method on it , so just added the new user functionality ..."
+      );
+    }
+  </script>
+</html>
